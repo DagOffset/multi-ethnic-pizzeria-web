@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   VARIABILI
+=========================== */
+
+:root {
+    --colore-rosso: #C0392B;
+    --sfondo-header: rgba(26, 26, 26, 0.95);
+    --testo-scuro: #2C2C2A;
+    --sfondo-chiaro: #F9F5F0;
+    --prenota-btn: #b13226;
+    --prenota-hover: #E74C3C;
+    --ordina-btn: #2373a4;
+    --ordina-hover: #2da8fa;
+    --sfondo-scuro: #1A1A1A;
+    --testi-secondari: #888780;
+}
+
+/* ===========================
+   BASE
+=========================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: var(--sfondo-chiaro);
+    color: var(--testo-scuro);
+    line-height: 1.6;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header {
+    background-color: var(--sfondo-header);
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    width: 100%;
+}
+
+.titolo {
+    color: var(--sfondo-chiaro);
+    text-align: center;
+    width: 30%;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spinge il logo a sinistra e i link a destra */
+    width: 100%;                  /* Occupa tutta la larghezza disponibile */
+    max-width: 100%;              /* Rimuove il limite dei 1200px per espandere ai bordi */
+    padding: 0 20px;
+}
+
+.logo {
+    height: 75px; /* Aumentata leggermente la dimensione del logo */
+    width: auto;
+    display: block;
+}
+
+.nav-lista {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin-left: auto;
+    font-size: 20px;
+}
+
+.nav-lista a {
+    color: var(--sfondo-chiaro);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-lista a:hover {
+    color: var(--colore-rosso);
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 105px); /* Occupa esattamente il 100% dell'altezza dello schermo (meno l'header) */
+    min-height: 600px;           /* Garantisce che non si rimpicciolisca troppo su schermi piccoli */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay per risaltare il contenuto */
+    z-index: 2;
+}
+
+.hero-contenuto {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+}
+
+.prenotazione,
+.ordinazione {
+    width: 50%;
+    padding: 45px 35px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.prenotazione p,
+.ordinazione p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #1a1a1a;
+}
+
+/* ===========================
+   HERO CON VIDEO DI SFONDO
+=========================== */
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 40px 20px;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 2;
+}
+
+.hero-contenuto {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.prenotazione,
+.ordinazione {
+    width: 50%;
+    padding: 35px 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ===========================
+   BOTTONI
+=========================== */
+
+.prenota-btn,
+.ordina-btn,
+.btn-menu {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.prenota-btn {
+    background-color: var(--prenota-btn);
+    color: var(--sfondo-chiaro);
+}
+
+.prenota-btn:hover {
+    background-color: var(--prenota-hover);
+    transform: translateY(-2px);
+}
+
+.ordina-btn {
+    background-color: var(--ordina-btn);
+    color: var(--sfondo-chiaro);
+}
+
+.ordina-btn:hover {
+    background-color: var(--ordina-hover);
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   CHI SIAMO
+=========================== */
+
+.chi-siamo {
+    background-color: var(--sfondo-chiaro);
+    padding: 60px 20px;
+}
+
+.contenitore-chi-siamo {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.chi-siamo-testo h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--colore-rosso);
+}
+
+.contenitore-chi-siamo img {
+    width: 45%;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* ===========================
+   MENU
+=========================== */
+
+.menu {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.menu h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--colore-rosso);
+}
+
+.menu p {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: var(--testo-scuro);
+}
+
+.btn-menu {
+    background-color: var(--colore-rosso);
+    color: white;
+}
+
+.btn-menu:hover {
+    background-color: var(--prenota-hover);
+}
+
+/* ===========================
+   GALLERIA
+=========================== */
+
+.galleria {
+    padding: 60px 20px;
+    background-color: var(--sfondo-chiaro);
+}
+
+.contenitore-galleria {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contenitore-galleria h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: var(--colore-rosso);
+}
+
+.galleria-griglia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.galleria-griglia img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.galleria-griglia img:hover {
+    transform: scale(1.03);
+}
+
+/* ===========================
+   RECENSIONI
+=========================== */
+
+.recensioni {
+    background-color: #ffffff;
+    padding: 60px 20px;
+}
+
+.contenitore-recensioni {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contenitore-recensioni h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: var(--colore-rosso);
+}
+
+.recensioni-griglia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.recensione {
+    background-color: var(--sfondo-chiaro);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.stelle {
+    color: #f39c12;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.nome {
+    font-weight: bold;
+    color: var(--testo-scuro);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer {
+    background-color: var(--sfondo-scuro);
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contenitore-footer address {
+    font-style: normal;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.contenitore-footer p {
+    margin-bottom: 15px;
+    color: var(--testi-secondari);
+    font-size: 14px;
+}
+
+/* ===========================
+   RESPONSIVE (MOBILE)
+=========================== */
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-lista {
+        margin-left: 0;
+        gap: 20px;
+        font-size: 16px;
+    }
+
+    .hero-contenuto {
+        flex-direction: column;
+    }
+
+    .prenotazione, 
+    .ordinazione {
+        width: 100%;
+    }
+
+    .contenitore-chi-siamo {
+        flex-direction: column;
+    }
+
+    .contenitore-chi-siamo img {
+        width: 100%;
+    }
+}
